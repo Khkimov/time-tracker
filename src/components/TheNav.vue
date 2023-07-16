@@ -1,26 +1,27 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { ChartBarIcon, ClockIcon, ListBulletIcon } from '@heroicons/vue/24/outline'
+import { toRefs } from 'vue'
 import NavItem from '@/components/NavItem.vue'
-import { PAGE_ACTIVITIES, PAGE_TIMELINE, PAGE_PROGRESS } from '../constants'
+import { NAV_ITEMS } from '@/constants'
 
-const currentPage = ref<string>('timeline')
+interface Props {
+  currentPage: string
+}
+const props = defineProps<Props>()
+const { currentPage } = toRefs(props)
 
-const navItems = ref<{}>({
-  [PAGE_TIMELINE]: ClockIcon,
-  [PAGE_ACTIVITIES]: ListBulletIcon,
-  [PAGE_PROGRESS]: ChartBarIcon
-})
+const emit = defineEmits<{
+  navigate: [page: string]
+}>()
 </script>
 
 <template>
   <nav class="sticky bottom-0 z-10 bg-white">
     <ul class="flex items-center justify-around border-t">
       <NavItem
-        v-for="(icon, page) in navItems"
+        v-for="(icon, page) in NAV_ITEMS"
         :key="page"
         :href="`#${page}`"
-        @click="currentPage = page"
+        @click="emit('navigate', page)"
         :class="{ 'pointer-events-none bg-gray-200': page === currentPage }"
       >
         <component :is="icon" class="h-6 w-6" />
