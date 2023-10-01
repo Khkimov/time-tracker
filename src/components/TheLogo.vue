@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PAGE_TIMELINE } from '@/constants'
+import { PAGE_TIMELINE } from '@/common/constants'
 </script>
 <template>
   <a :href="`#${PAGE_TIMELINE}`">

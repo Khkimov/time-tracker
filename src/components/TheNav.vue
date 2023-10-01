@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
 import NavItem from '@/components/NavItem.vue'
-import { NAV_ITEMS } from '@/constants'
+import { NAV_ITEMS } from '@/common/constants'
 
 interface Props {
   currentPage: string
