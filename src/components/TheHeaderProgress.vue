@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { CheckCircleIcon } from '@heroicons/vue/24/solid'
-import { PAGE_PROGRESS } from '@/common/constants'
-</script>
-
 <template>
   <a :href="`#${PAGE_PROGRESS}`" class="text-sm">
     <div v-if="true" class="flex items-center gap-1">
@@ -15,3 +10,8 @@ import { PAGE_PROGRESS } from '@/common/constants'
     </div>
   </a>
 </template>
+
+<script setup lang="ts">
+import { CheckCircleIcon } from '@heroicons/vue/24/solid'
+import { PAGE_PROGRESS } from '@/common/constants'
+</script>

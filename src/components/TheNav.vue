@@ -1,19 +1,3 @@
-<script setup lang="ts">
-import { toRefs } from 'vue'
-import NavItem from '@/components/NavItem.vue'
-import { NAV_ITEMS } from '@/common/constants'
-
-interface Props {
-  currentPage: string
-}
-const props = defineProps<Props>()
-const { currentPage } = toRefs(props)
-
-const emit = defineEmits<{
-  navigate: [page: string]
-}>()
-</script>
-
 <template>
   <nav class="sticky bottom-0 z-10 bg-white">
     <ul class="flex items-center justify-around border-t">
@@ -30,3 +14,19 @@ const emit = defineEmits<{
     </ul>
   </nav>
 </template>
+
+<script setup lang="ts">
+import { toRefs } from 'vue'
+import NavItem from '@/components/NavItem.vue'
+import { NAV_ITEMS } from '@/common/constants'
+
+interface Props {
+  currentPage: string
+}
+const props = defineProps<Props>()
+const { currentPage } = toRefs(props)
+
+const emit = defineEmits<{
+  navigate: [page: string]
+}>()
+</script>

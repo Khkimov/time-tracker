@@ -1,6 +1,3 @@
-<script setup lang="ts">
-import { PAGE_TIMELINE } from '@/common/constants'
-</script>
 <template>
   <a :href="`#${PAGE_TIMELINE}`">
     <div class="flex items-center gap-1">
@@ -9,3 +6,7 @@ import { PAGE_TIMELINE } from '@/common/constants'
     </div>
   </a>
 </template>
+
+<script setup lang="ts">
+import { PAGE_TIMELINE } from '@/common/constants'
+</script>
