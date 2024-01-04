@@ -1,10 +1,11 @@
-import { HOURS_IN_DAY, PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from '@/common/constants'
+import { HOURS_IN_DAY, MIDNIGHT_HOUR, PAGE_TIMELINE } from '@/common/constants'
+import { isPageValid } from '@/common/validators'
 
 export function normalizePageHash(): string {
-  const hash = window.location.hash.slice(1)
+  const page = window.location.hash.slice(1)
 
-  if (Object.keys([PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE]).includes(hash)) {
-    return hash
+  if (isPageValid(page)) {
+    return page
   }
 
   window.location.hash = PAGE_TIMELINE
@@ -15,7 +16,7 @@ export function normalizePageHash(): string {
 export function generateTimelineItems() {
   const timelineItems = []
 
-  for (let hour = 1; hour <= HOURS_IN_DAY; hour++) {
+  for (let hour = MIDNIGHT_HOUR; hour <= HOURS_IN_DAY; hour++) {
     timelineItems.push({ hour })
   }
 

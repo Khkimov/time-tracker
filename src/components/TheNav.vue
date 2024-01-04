@@ -19,6 +19,7 @@
 import { toRefs } from 'vue'
 import NavItem from '@/components/NavItem.vue'
 import { NAV_ITEMS } from '@/common/constants'
+import { isPageValid } from '@/common/validators'
 
 interface Props {
   currentPage: string
@@ -26,7 +27,7 @@ interface Props {
 const props = defineProps<Props>()
 const { currentPage } = toRefs(props)
 
-const emit = defineEmits<{
-  navigate: [page: string]
-}>()
+const emit = defineEmits({
+  navigate: isPageValid
+})
 </script>

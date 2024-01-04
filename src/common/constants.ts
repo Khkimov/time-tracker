@@ -14,3 +14,4 @@ export const NAV_ITEMS = ref({
 })
 
 export const HOURS_IN_DAY: number = 24
+export const MIDNIGHT_HOUR: number = 0

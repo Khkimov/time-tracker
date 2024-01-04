@@ -1,5 +1,5 @@
 <template>
-  <TheHeader @go-to-timeline="goTo(PAGE_TIMELINE)" @go-to-progress="goTo(PAGE_PROGRESS)" />
+  <TheHeader @navigate="goTo($event)" />
 
   <main class="flex flex-grow flex-col">
     <TheTimeline v-show="currentPage === PAGE_TIMELINE" :timeline-items="timelineItems" />
@@ -23,7 +23,7 @@ import { normalizePageHash, generateTimelineItems } from '@/common/functions'
 const currentPage = ref(normalizePageHash())
 const timelineItems = generateTimelineItems()
 
-const goTo = (params: string): void => {
-  currentPage.value = params
+const goTo = (page: string): void => {
+  currentPage.value = page
 }
 </script>
