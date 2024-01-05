@@ -2,13 +2,19 @@
   <div>
     <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
       <a href="#" :class="hourLinkClasses"> {{ props.timelineItem.hour }}:00 </a>
-      <BaseSelect :options="options" :selected="selectedActivityId" placeholder="Rest" />
+      <BaseSelect
+        :options="options"
+        :selected="selectedActivityId"
+        placeholder="Rest"
+        @select="selectedActivityId = $event"
+      />
     </li>
   </div>
 </template>
 
 <script setup lang="ts">
 import BaseSelect from '@/components/BaseSelect.vue'
+import { ref } from 'vue'
 
 interface Props {
   timelineItem: { hour: number }
@@ -29,5 +35,5 @@ const options = [
   { value: 3, label: 'Training' }
 ]
 
-const selectedActivityId = 3
+const selectedActivityId = ref(1)
 </script>
