@@ -15,3 +15,18 @@ export const NAV_ITEMS = ref({
 
 export const HOURS_IN_DAY: number = 24
 export const MIDNIGHT_HOUR: number = 0
+
+export const PERIOD_SELECT_OPTIONS = [
+  {
+    label: '0:15',
+    value: 15
+  },
+  {
+    label: '0:30',
+    value: 30
+  },
+  {
+    label: '0:45',
+    value: 45
+  }
+]

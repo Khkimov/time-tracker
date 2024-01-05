@@ -9,5 +9,9 @@
 <script setup lang="ts">
 import ActivitiesItem from '@/components/ActivitiesItem.vue'
 
-const activities = ['Coding', 'Reading', 'Training']
+interface Props {
+  activities: string[]
+}
+
+defineProps<Props>()
 </script>
