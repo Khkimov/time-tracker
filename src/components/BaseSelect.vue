@@ -13,7 +13,7 @@
           v-for="{ value, label } in props.options"
           :key="value"
           :value="value"
-          :selected="value === selected"
+          :selected="value === props.selected"
         >
           {{ label }}
         </option>
