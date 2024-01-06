@@ -1,7 +1,12 @@
 <template>
   <div>
     <ul class="divide-y">
-      <ActivitiesItem v-for="activity in activities" :key="activity" :activity="activity" />
+      <ActivitiesItem
+        v-for="activity in activities"
+        :key="activity"
+        :activity="activity"
+        @delete="emit('deleteActivity', activity)"
+      />
     </ul>
   </div>
 </template>
@@ -14,4 +19,6 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const emit = defineEmits(['deleteActivity'])
 </script>
