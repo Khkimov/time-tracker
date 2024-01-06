@@ -1,9 +1,9 @@
 <template>
   <div>
     <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
-      <TimelineHour :hour="props.timelineItem.hour" />
+      <TimelineHour :hour="timelineItem.hour" />
       <BaseSelect
-        :options="options"
+        :options="activitySelectOptions"
         :selected="selectedActivityId"
         placeholder="Rest"
         @select="selectedActivityId = $event"
@@ -19,15 +19,13 @@ import TimelineHour from '@/components/TimelineHour.vue'
 
 interface Props {
   timelineItem: { hour: number }
+  activitySelectOptions: {
+    label: string
+    value: number
+  }[]
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
-const options = [
-  { value: 1, label: 'Coding' },
-  { value: 2, label: 'Reading' },
-  { value: 3, label: 'Training' }
-]
-
-const selectedActivityId = ref(1)
+const selectedActivityId = ref(0)
 </script>
