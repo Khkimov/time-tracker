@@ -31,6 +31,7 @@ export const PERIOD_SELECT_OPTIONS = [
   }
 ]
 
+export const BUTTON_TYPE_PRIMARY = 'primary'
 export const BUTTON_TYPE_NEUTRAL = 'neutral'
 export const BUTTON_TYPE_DANGER = 'danger'
 

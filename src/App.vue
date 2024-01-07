@@ -11,6 +11,7 @@
       v-show="currentPage === PAGE_ACTIVITIES"
       :activities="activities"
       @delete-activity="deleteActivity"
+      @create-activity="createActivity"
     />
     <TheProgress v-show="currentPage === PAGE_PROGRESS" />
   </main>
@@ -39,6 +40,12 @@ const activities = ref(['Coding', 'Reading', 'Training'])
 
 const goTo = (page: string): void => {
   currentPage.value = page
+}
+
+const createActivity = (activity: string) => {
+  if (activity) {
+    activities.value.push(activity)
+  }
 }
 
 const activitySelectOptions = generateActivitySelectOptions(activities.value)
