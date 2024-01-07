@@ -6,7 +6,7 @@
       placeholder="Activity name"
       v-model="activity"
     />
-    <BaseButton>
+    <BaseButton :disabled="activity.trim() === ''">
       <PlusIcon class="h-8" />
     </BaseButton>
   </form>
@@ -23,5 +23,7 @@ const emit = defineEmits(['submit'])
 
 const submit = () => {
   emit('submit', activity.value)
+
+  activity.value = ''
 }
 </script>
