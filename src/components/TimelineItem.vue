@@ -1,31 +1,42 @@
 <template>
   <div>
     <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
-      <TimelineHour :hour="timelineItem.hour" />
+      <TimelineHour :hour="props.timelineItem.hour" />
       <BaseSelect
-        :options="activitySelectOptions"
-        :selected="selectedActivityId"
+        :options="props.activitySelectOptions"
+        :selected="timelineItem.activityId"
         placeholder="Rest"
-        @select="selectedActivityId = $event"
+        @select="selectActivity"
       />
     </li>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import TimelineHour from '@/components/TimelineHour.vue'
+import type { Activity } from '@/common/types'
 
 interface Props {
-  timelineItem: { hour: number }
+  timelineItem: {
+    hour: number
+    activityId: number | null
+  }
   activitySelectOptions: {
     label: string
     value: number
   }[]
+  activities: Activity[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
-const selectedActivityId = ref(null)
+const emit = defineEmits(['selectActivity'])
+
+const selectActivity = (id: string) => {
+  emit(
+    'selectActivity',
+    props.activities.find((activity) => activity.id === id)
+  )
+}
 </script>
