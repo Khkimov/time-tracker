@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import TheHeader from '@/components/TheHeader.vue'
 import TheNav from '@/components/TheNav.vue'
 import TheTimeline from '@/pages/TheTimeline.vue'
@@ -48,7 +48,7 @@ const createActivity = (activity: Activity) => {
   activities.value.push(activity)
 }
 
-const activitySelectOptions = generateActivitySelectOptions(activities.value)
+const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
 
 const deleteActivity = (activity: Activity) => {
   activities.value.splice(activities.value.indexOf(activity), 1)

@@ -34,5 +34,5 @@ defineProps<Props>()
 
 const emit = defineEmits(['delete'])
 
-const secondsToComplete = ref(15)
+const secondsToComplete = ref(0)
 </script>

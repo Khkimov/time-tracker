@@ -4,6 +4,6 @@ export function isPageValid(page: string) {
   return Object.keys(NAV_ITEMS).includes(page)
 }
 
-export function isUndefinedOrNull(value: number | undefined | null) {
+export function isUndefinedOrNull(value: string | number | undefined | null) {
   return value === null || value === undefined
 }

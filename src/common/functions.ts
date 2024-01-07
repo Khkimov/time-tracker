@@ -1,9 +1,4 @@
-import {
-  HOURS_IN_DAY,
-  MIDNIGHT_HOUR,
-  PAGE_TIMELINE,
-  SECONDS_IN_HOUR
-} from '@/common/constants'
+import { HOURS_IN_DAY, MIDNIGHT_HOUR, PAGE_TIMELINE, SECONDS_IN_HOUR } from '@/common/constants'
 import { isPageValid } from '@/common/validators'
 import type { Activity } from '@/common/types'
 

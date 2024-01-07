@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="flex gap-2">
-      <BaseButton @click="emit('select', null)" :type="BUTTON_TYPE_NEUTRAL">
+      <BaseButton @click="select(null)" :type="BUTTON_TYPE_NEUTRAL">
         <XMarkIcon class="h-8" />
       </BaseButton>
       <select
-        @change="emit('select', +$event.target.value)"
+        @change="select($event.target.value)"
         class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
       >
         <option :selected="isSelected" disabled value="">{{ props.placeholder }}</option>
@@ -32,11 +32,15 @@ import { BUTTON_TYPE_NEUTRAL } from '@/common/constants'
 interface Props {
   options: { value: number; label: string }[]
   placeholder: string
-  selected: number
+  selected: number | string
 }
 const props = defineProps<Props>()
 
 const emit = defineEmits(['select'])
 
 const isSelected = computed(() => isUndefinedOrNull(props.selected))
+
+const select = (value: string) => {
+  emit('select', value)
+}
 </script>
