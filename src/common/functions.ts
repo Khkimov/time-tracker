@@ -1,4 +1,9 @@
-import { HOURS_IN_DAY, MIDNIGHT_HOUR, PAGE_TIMELINE, SECONDS_IN_HOUR } from '@/common/constants'
+import {
+  HOURS_IN_DAY,
+  MIDNIGHT_HOUR,
+  PAGE_TIMELINE,
+  SECONDS_IN_HOUR
+} from '@/common/constants'
 import { isPageValid } from '@/common/validators'
 import type { Activity } from '@/common/types'
 
@@ -32,22 +37,10 @@ export function id() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2)
 }
 
-export function generateActivities() {
-  return [
-    {
-      id: id(),
-      name: 'Coding',
-      secondsToComplete: 0 * SECONDS_IN_HOUR
-    },
-    {
-      id: id(),
-      name: 'Training',
-      secondsToComplete: 1 * SECONDS_IN_HOUR
-    },
-    {
-      id: id(),
-      name: 'Reading',
-      secondsToComplete: 2 * SECONDS_IN_HOUR
-    }
-  ]
+export function generateActivities(): Activity[] {
+  return ['Coding', 'Training', 'Reading'].map((name, hours) => ({
+    id: id(),
+    name,
+    secondsToComplete: hours * SECONDS_IN_HOUR
+  }))
 }

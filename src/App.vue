@@ -31,9 +31,9 @@ import {
   normalizePageHash,
   generateTimelineItems,
   generateActivitySelectOptions,
-  generateActivities,
-  id
+  generateActivities
 } from '@/common/functions'
+import type { Activity } from '@/common/types'
 
 const currentPage = ref(normalizePageHash())
 const timelineItems = generateTimelineItems()
@@ -44,17 +44,13 @@ const goTo = (page: string): void => {
   currentPage.value = page
 }
 
-const createActivity = (name: string) => {
-  activities.value.push({
-    id: id(),
-    name,
-    secondsToComplete: 0
-  })
+const createActivity = (activity: Activity) => {
+  activities.value.push(activity)
 }
 
 const activitySelectOptions = generateActivitySelectOptions(activities.value)
 
-const deleteActivity = (activity: string) => {
+const deleteActivity = (activity: Activity) => {
   activities.value.splice(activities.value.indexOf(activity), 1)
 }
 </script>
