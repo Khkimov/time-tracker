@@ -1,0 +1,27 @@
+<template>
+  <form @submit.prevent="submit" class="sticky bottom-[57px] flex gap-2 border-t bg-white p-4">
+    <input
+      type="text"
+      class="w-full rounded border px-4 text-xl"
+      placeholder="Activity name"
+      v-model="activity"
+    />
+    <BaseButton>
+      <PlusIcon class="h-8" />
+    </BaseButton>
+  </form>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { PlusIcon } from '@heroicons/vue/24/outline'
+import BaseButton from '@/components/BaseButton.vue'
+
+const activity = ref('')
+
+const emit = defineEmits(['submit'])
+
+const submit = () => {
+  emit('submit', activity.value)
+}
+</script>

@@ -9,11 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  BUTTON_TYPE_NEUTRAL,
-  BUTTON_TYPE_DANGER,
-  BUTTON_TYPE_PRIMARY
-} from '@/common/constants'
+import { BUTTON_TYPE_NEUTRAL, BUTTON_TYPE_DANGER, BUTTON_TYPE_PRIMARY } from '@/common/constants'
 
 interface Props {
   type?: string
