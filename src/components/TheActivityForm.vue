@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import {nextTick, ref} from 'vue'
 import { PlusIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '@/components/BaseButton.vue'
 
@@ -21,9 +21,13 @@ const activity = ref('')
 
 const emit = defineEmits(['submit'])
 
-const submit = () => {
+const submit = async () => {
   emit('submit', activity.value)
 
   activity.value = ''
+
+  await nextTick(() => {
+    window.scrollTo(0, document.body.scrollHeight)
+  })
 }
 </script>
