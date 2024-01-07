@@ -30,22 +30,26 @@ import { PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from '@/common/constant
 import {
   normalizePageHash,
   generateTimelineItems,
-  generateActivitySelectOptions
+  generateActivitySelectOptions,
+  generateActivities,
+  id
 } from '@/common/functions'
 
 const currentPage = ref(normalizePageHash())
 const timelineItems = generateTimelineItems()
 
-const activities = ref(['Coding', 'Reading', 'Training'])
+const activities = ref(generateActivities())
 
 const goTo = (page: string): void => {
   currentPage.value = page
 }
 
-const createActivity = (activity: string) => {
-  if (activity) {
-    activities.value.push(activity)
-  }
+const createActivity = (name: string) => {
+  activities.value.push({
+    id: id(),
+    name,
+    secondsToComplete: 0
+  })
 }
 
 const activitySelectOptions = generateActivitySelectOptions(activities.value)

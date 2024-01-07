@@ -1,10 +1,8 @@
 <template>
-  <div class="flex flex-col items-center gap-4 p-8 text-center grow">
-    <img src="../assets/img/empty-list.png" class="h-48">
+  <div class="flex grow flex-col items-center gap-4 p-8 text-center">
+    <img src="../assets/img/empty-list.png" class="h-48" />
     <span class="text-gray-400">You don`t have any activities</span>
   </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>

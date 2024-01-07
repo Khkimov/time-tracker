@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import {nextTick, ref} from 'vue'
+import { nextTick, ref } from 'vue'
 import { PlusIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '@/components/BaseButton.vue'
 

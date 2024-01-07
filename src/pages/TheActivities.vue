@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col grow">
-    <ul v-if="activities.length" class="divide-y grow">
+  <div class="flex grow flex-col">
+    <ul v-if="activities.length" class="grow divide-y">
       <ActivitiesItem
         v-for="activity in activities"
-        :key="activity"
+        :key="activity.id"
         :activity="activity"
         @delete="emit('deleteActivity', activity)"
       />
@@ -16,10 +16,11 @@
 <script setup lang="ts">
 import ActivitiesItem from '@/components/ActivitiesItem.vue'
 import TheActivityForm from '@/components/TheActivityForm.vue'
-import TheActivitiesEmptyState from "@/components/TheActivitiesEmptyState.vue";
+import TheActivitiesEmptyState from '@/components/TheActivitiesEmptyState.vue'
+import type { Activity } from '@/common/types'
 
 interface Props {
-  activities: string[]
+  activities: Activity[]
 }
 
 defineProps<Props>()
