@@ -33,10 +33,7 @@ const props = defineProps<Props>()
 
 const emit = defineEmits(['selectActivity'])
 
-const selectActivity = (id: string) => {
-  emit(
-    'selectActivity',
-    props.activities.find((activity) => activity.id === id)
-  )
+const selectActivity = (id: string | null) => {
+  emit('selectActivity', props.activities.find((activity) => activity.id === id) || null)
 }
 </script>

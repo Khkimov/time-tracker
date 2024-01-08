@@ -32,7 +32,7 @@ import { BUTTON_TYPE_NEUTRAL } from '@/common/constants'
 interface Props {
   options: { value: number; label: string }[]
   placeholder: string
-  selected: number | string
+  selected: number | string | null
 }
 const props = defineProps<Props>()
 
@@ -40,7 +40,7 @@ const emit = defineEmits(['select'])
 
 const isSelected = computed(() => isUndefinedOrNull(props.selected))
 
-const select = (value: string) => {
+const select = (value: string | null) => {
   emit('select', value)
 }
 </script>

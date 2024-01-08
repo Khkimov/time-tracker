@@ -38,7 +38,7 @@ import {
 import type { Activity } from '@/common/types'
 
 const currentPage = ref(normalizePageHash())
-const timelineItems = generateTimelineItems()
+const timelineItems = ref(generateTimelineItems())
 
 const activities = ref(generateActivities())
 
@@ -51,13 +51,18 @@ const createActivity = (activity: Activity) => {
 }
 
 const activitySelectOptions = computed(() => generateActivitySelectOptions(activities.value))
-console.log(activitySelectOptions.value)
 
 const deleteActivity = (activity: Activity) => {
+  timelineItems.value.forEach((timelineItem) => {
+    if (timelineItem.activityId === activity.id) {
+      timelineItem.activityId = null
+    }
+  })
+
   activities.value.splice(activities.value.indexOf(activity), 1)
 }
 
 const setTimelineItemActivity = ({ timelineItem, activity }) => {
-  timelineItem.activityId = activity.id
+  timelineItem.activityId = activity?.id || null
 }
 </script>
