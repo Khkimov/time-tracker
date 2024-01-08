@@ -14,6 +14,7 @@
       :activities="activities"
       @delete-activity="deleteActivity"
       @create-activity="createActivity"
+      @set-activity-seconds-to-complete="setActivitySecondsToComplete"
     />
     <TheProgress v-show="currentPage === PAGE_PROGRESS" />
   </main>
@@ -35,7 +36,7 @@ import {
   generateActivitySelectOptions,
   generateActivities
 } from '@/common/functions'
-import type { Activity } from '@/common/types'
+import type { Activity, TimelineItems } from '@/common/types'
 
 const currentPage = ref(normalizePageHash())
 const timelineItems = ref(generateTimelineItems())
@@ -62,7 +63,11 @@ const deleteActivity = (activity: Activity) => {
   activities.value.splice(activities.value.indexOf(activity), 1)
 }
 
-const setTimelineItemActivity = ({ timelineItem, activity }) => {
+const setTimelineItemActivity = (timelineItem: TimelineItems, activity: Activity | null) => {
   timelineItem.activityId = activity?.id || null
+}
+
+const setActivitySecondsToComplete = (activity: Activity, secondsToComplete: number) => {
+  activity.secondsToComplete = secondsToComplete
 }
 </script>

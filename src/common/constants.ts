@@ -19,16 +19,16 @@ export const SECONDS_IN_HOUR: number = 3600
 
 export const PERIOD_SELECT_OPTIONS = [
   {
-    label: '0:15',
-    value: 15
+    label: '01:00',
+    value: SECONDS_IN_HOUR
   },
   {
-    label: '0:30',
-    value: 30
+    label: '02:00',
+    value: 2 * SECONDS_IN_HOUR
   },
   {
-    label: '0:45',
-    value: 45
+    label: '03:00',
+    value: 3 * SECONDS_IN_HOUR
   }
 ]
 

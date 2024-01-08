@@ -7,7 +7,7 @@
         :timeline-item="timelineItem"
         :activity-select-options="props.activitySelectOptions"
         :activities="activities"
-        @select-activity="emit('setTimelineItemActivity', { timelineItem, activity: $event })"
+        @select-activity="emit('setTimelineItemActivity', timelineItem, $event)"
       />
     </ul>
   </div>

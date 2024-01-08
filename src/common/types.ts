@@ -11,5 +11,5 @@ export type TimelineItems = {
 
 export type ActivitySelectOptions = {
   label: string
-  value: string
+  value: string | null
 }

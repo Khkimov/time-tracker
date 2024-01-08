@@ -15,17 +15,14 @@
 <script setup lang="ts">
 import BaseSelect from '@/components/BaseSelect.vue'
 import TimelineHour from '@/components/TimelineHour.vue'
-import type { Activity } from '@/common/types'
+import type { Activity, ActivitySelectOptions } from '@/common/types'
 
 interface Props {
   timelineItem: {
     hour: number
     activityId: number | null
   }
-  activitySelectOptions: {
-    label: string
-    value: number
-  }[]
+  activitySelectOptions: ActivitySelectOptions[]
   activities: Activity[]
 }
 

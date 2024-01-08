@@ -11,15 +11,14 @@
         placeholder="h:mm"
         class="font-mono"
         :options="PERIOD_SELECT_OPTIONS"
-        :selected="secondsToComplete"
-        @select="secondsToComplete = $event"
+        :selected="activity.secondsToComplete || null"
+        @select="emit('setSecondsToComplete', $event)"
       />
     </div>
   </li>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
@@ -32,7 +31,5 @@ interface Props {
 
 defineProps<Props>()
 
-const emit = defineEmits(['delete'])
-
-const secondsToComplete = ref(0)
+const emit = defineEmits(['delete', 'setSecondsToComplete'])
 </script>
